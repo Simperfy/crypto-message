@@ -28,7 +28,7 @@ function App() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const newMessengerContract = new ethers.Contract(
-      process.env.MESSENGER_CONTRACT_ADDRESS,
+      process.env.REACT_APP_MESSENGER_CONTRACT_ADDRESS,
       MessengerContract.abi,
       signer
     );
@@ -111,7 +111,9 @@ function App() {
         <div id="form-main-container">
           { alertStatus.isVisible && <ShowAlert/>}
           <div id="form-area">
-            <div id="form-title">Message through blockchain</div>
+            <div id="form-title">Message through blockchain
+            <br/>
+            <span style={{fontSize: "0.8rem"}}>Connected Account: {(accounts[0])}</span></div>
             <div id="form-body">
               <div>
                 <div className="col-12">
